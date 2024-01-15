@@ -106,4 +106,84 @@ if __name__ == "__main__":test_element_presence_with_lambda()
 Этот скрипт демонстрирует, как лямбда-функции могут быть использованы в тестах Playwright для создания кратких и эффективных проверок. 
 Лямбда-функции особенно полезны для создания простых анонимных функций на лету, что делает код более компактным и читаемым.
 
+''' 
+
+def greeting(greet): 
+    return lambda name : f"{greet},{name}!"
+
+
+morning_greeting = greeting("Good Morning")
+
+print(morning_greeting("Dimon"))
+# Good Morning, Dimon!
+
+evening_greeting = greeting("Good Evening")
+
+print(evening_greeting("Dimon"))
+# Good Evening, Dimon!
+
+'''
+The active selection is a Python script that demonstrates 
+the use of higher-order functions and 
+lambda functions to create customized greeting messages.
+
+The `greeting` function is a higher-order function, 
+which means it's a function that returns another function. 
+In this case, it returns a lambda function. 
+The `greeting` function takes one argument, `greet`, 
+which is a string that represents the type of greeting (e.g., "Good Morning" or "Good Evening").
+
+The lambda function it returns takes one argument, `name`, 
+and returns a formatted string that combines the greeting and the name. 
+The `f"{greet},{name}!"` is an f-string, 
+a feature in Python that allows for embedded expressions inside string literals. 
+The `{greet}` and `{name}` inside the f-string are placeholders that get replaced by the values of `greet` and `name`.
+
+The `morning_greeting` and `evening_greeting` 
+are instances of the lambda function returned by the `greeting` function. 
+When you call `morning_greeting("Dimon")` or `evening_greeting("Dimon")`, 
+it's equivalent to calling the lambda function with "Dimon" as the argument for `name`.
+
+The `print` function is a built-in Python function that writes the specified message to the screen, 
+or other standard output device. 
+The message can be a string, or any other object, 
+the object will be converted into a string before written to the screen. 
+In this case, it's used to print the result of the 
+`morning_greeting` and `evening_greeting` function calls to the console.
+
+
+Активный выбор - это скрипт на Python, 
+который демонстрирует использование функций высшего порядка и 
+лямбда-функций для создания настраиваемых приветственных сообщений.
+
+Функция `greeting` - это функция высшего порядка, 
+что означает, что это функция, 
+которая возвращает другую функцию. 
+В данном случае она возвращает лямбда-функцию. 
+Функция `greeting` принимает один аргумент, `greet`, 
+который является строкой, 
+представляющей тип приветствия (например, "Good Morning" или "Good Evening").
+
+Возвращаемая ею лямбда-функция принимает один аргумент, `name`, 
+и возвращает отформатированную строку, 
+которая объединяет приветствие и имя. 
+`f"{greet},{name}!"` - это f-строка, 
+функция в Python, 
+которая позволяет встраивать выражения внутри строковых литералов. 
+`{greet}` и `{name}` внутри f-строки - 
+это заполнители, которые заменяются значениями `greet` и `name`.
+
+`morning_greeting` и `evening_greeting` - 
+это экземпляры лямбда-функции, возвращаемой функцией `greeting`. 
+Когда вы вызываете `morning_greeting("Dimon")` или `evening_greeting("Dimon")`, 
+это эквивалентно вызову лямбда-функции с "Dimon" в качестве аргумента для `name`.
+
+Функция `print` - это встроенная функция Python, 
+которая записывает указанное сообщение на экран 
+или другое стандартное устройство вывода. 
+Сообщение может быть строкой или любым другим объектом, 
+объект будет преобразован в строку перед записью на экран. 
+В данном случае она используется для 
+вывода результата вызовов функций 
+`morning_greeting` и `evening_greeting` в консоль.
 '''
