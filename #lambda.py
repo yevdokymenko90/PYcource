@@ -41,7 +41,7 @@ print("Четные числа:", even_nums)
 # Пример 4: Использование лямбда-функции в качестве аргумента функции sorted
 words = ["apple", "banana"]
 
-
+'''
 from playwright.sync_api import sync_playwright
 
 def test_element_presence_with_lambda():
@@ -64,7 +64,7 @@ def test_element_presence_with_lambda():
         browser.close()
 
 if __name__ == "__main__":test_element_presence_with_lambda()
-
+'''
 
 
 
