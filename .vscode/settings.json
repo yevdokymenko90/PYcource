@@ -1,0 +1,7 @@
+{
+    "accessibility.verbosity.inlineChat": true,
+    "inlineChat.acceptedOrDiscardBeforeSave": true,
+    "inlineChat.holdToSpeech": false,
+    "inlineChat.mode": "livePreview",
+    "inlineChat.finishOnType": true
+}
