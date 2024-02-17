@@ -222,3 +222,120 @@ if token:
 повышая эффективность и надежность тестирования.
 '''
 
+
+
+'''
+
+Давайте рассмотрим несколько примеров автотестов на Python, 
+используя различные подходы и инструменты, 
+такие как `unittest` для модульного тестирования 
+и `requests` для тестирования API. 
+Эти примеры помогут вам понять, 
+как можно структурировать тесты для разных сценариев.
+
+### 1. Модульное Тестирование с `unittest`
+
+Модуль 
+`unittest` в Python 
+предоставляет инструменты для построения тестовых случаев, 
+организации тестов в тестовые наборы и их выполнения.
+
+**Пример: Тестирование Функции Сложения**
+
+'''
+
+import unittest
+
+def add(a, b):
+    return a + b
+
+class TestAddFunction(unittest.TestCase):
+    """
+    A test case for the add function.
+    """
+
+    def test_add_integers(self):
+        self.assertEqual(add(1, 2), 3)
+
+    def test_add_floats(self):
+        self.assertAlmostEqual(add(1.1, 2.2), 3.3, places=1)
+
+    def test_add_strings_raises_typeerror(self):
+        with self.assertRaises(TypeError):
+            add('one', 'two')
+
+if __name__ == '__main__':
+    unittest.main()
+
+''' 
+2. Тестирование API с использованием `requests`
+Библиотека 
+`requests` 
+позволяет легко отправлять HTTP-запросы в Python. 
+Она широко используется для тестирования API.
+
+**Пример: 
+Тестирование REST API**
+'''
+
+import requests
+import unittest
+
+class TestUserAPI(unittest.TestCase):
+    BASE_URL = "https://jsonplaceholder.typicode.com/users"
+
+    def test_get_user(self):
+        user_id = 1
+        response = requests.get(f"{self.BASE_URL}/{user_id}")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()['id'], user_id)
+
+    def test_user_not_found(self):
+        user_id = -1  # Предполагаем, что такого пользователя нет
+        response = requests.get(f"{self.BASE_URL}/{user_id}")
+        self.assertEqual(response.status_code, 404)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+    
+'''
+
+3. Использование Параметризации Тестов в `pytest`
+
+`pytest` — еще один популярный инструмент для тестирования, 
+который поддерживает параметризацию тестов, 
+позволяя запускать один и тот же тест с разными входными данными.
+
+**Пример: 
+Параметризированный Тест**
+
+'''
+import pytest
+
+def multiply(a, b):
+    return a * b
+
+@pytest.mark.parametrize("a, b, expected", [
+    (1, 2, 2),
+    (2, 3, 6),
+    (4, 5, 20),
+    (6, -7, -42),
+    (0, 100, 0),
+])
+def test_multiply(a, b, expected):
+    assert multiply(a, b) == expected
+
+'''
+Для запуска этого теста потребуется установить 
+`pytest` 
+и выполнить команду `pytest` в терминале.
+
+Эти примеры демонстрируют разнообразие подходов к автоматизированному тестированию на Python, 
+от модульного тестирования внутренней логики приложений до интеграционного тестирования API 
+и использования продвинутых функций тестовых фреймворков, 
+таких как параметризация тестов в `pytest`.
+'''
+
