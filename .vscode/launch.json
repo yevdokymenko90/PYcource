@@ -1,16 +1,43 @@
+/**
+ * This file contains the configuration settings for launching and debugging Python files in Visual Studio Code.
+ * 
+ * @version 0.2.0
+ * @see {@link https://code.visualstudio.com/docs/editor/debugging#_launch-configurations}
+ */
 {
     "version": "0.2.0",
     "configurations": [
-        
-        {"name":"Python: Current File","type":"python","request":"launch","program":"${file}","console":"integratedTerminal","justMyCode":true},
         {
+            /**
+             * Configuration for launching the current Python file in the integrated terminal.
+             * 
+             * @name Python: Current File
+             * @type debugpy
+             * @request launch
+             * @program ${file}
+             * @console integratedTerminal
+             * @justMyCode true
+             */
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": true,
+            "justMyCode": true
+        },
+        {
+            /**
+             * Configuration for launching a Python file using the Python debugger.
+             * 
+             * @name Python Debugger: Python File
+             * @type debugpy
+             * @request launch
+             * @program ${file}
+             */
+            "name": "Python Debugger: Python File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}"
         }
     ]
 }
-
