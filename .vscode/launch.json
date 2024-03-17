@@ -7,6 +7,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
             /**
              * Configuration for launching the current Python file in the integrated terminal.
