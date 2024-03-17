@@ -2,4 +2,3 @@ import pygame
 
 pygame.init()
 
-
