@@ -1,5 +1,9 @@
-from modules import my_name, print_sum as sum
+# main.py
 
-print(my_name) 
-sum(1, 2)
+import math_utils
 
+result = math_utils.add(10, 5)
+print(result)  # 15
+
+result = math_utils.multiply(10, 5)
+print(result)  # 50
